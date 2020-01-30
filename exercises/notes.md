@@ -1,4 +1,5 @@
 ## REPL
+Can enter repl just by running `python`
 * just like JS.  Useful built-in methods:
 
 * `type(var)` - tells you what type `var` is.  Think `typeof`.
