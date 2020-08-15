@@ -39,7 +39,7 @@ add_item('b')
 A better way to implement this function would be a simple None check
 
 ```python
-def add_item(item, collection=[]):
+def add_item(item, collection):
 	if collection is None:
 			collection = []
 	collection.append(item)

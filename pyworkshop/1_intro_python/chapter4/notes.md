@@ -35,4 +35,24 @@ status_code, name = get_http_request()
 ```
 
 ### Sets
-Sets are collections where order is not preserved and all members are unique.  Searching through sets is faster than lists.  Because order is not preserved, you can not access by index.  They are mutable, 
+[https://www.learnpython.dev/02-introduction-to-python/080-advanced-datatypes/50-sets/](https://www.learnpython.dev/02-introduction-to-python/080-advanced-datatypes/50-sets/)
+
+Sets are collections where order is __not__ preserved and all members are unique.  Searching through sets is faster than lists.  Because order is not preserved, you can not access by index.  They're contents are hashed, which is why searching is fast, but as such, you can not have mutable data types inside of a set.  Mutable types are not hashable, which you can verify by trying to call `hash([])` which will throw an error.  So if you try to put a mutable type like a list in a set, you will get an error.  Sets are useful for de-duping a list, tuple or other container type.
+```python
+names = {'John', 'Jacob', 'John'} # shorthand declaration
+len(names) # 2
+# sets can be instatiated with lists or tuples using the non-shorthand declaration
+foods_set = set(['pizza', 'burger', 'noodles'])
+# using shorthand to make an empty set actually makes an empty dict, so be careful. use `set()` to make an empty set
+empty_set = {}
+type(empty_set) # <class 'dict'>
+```
+* `s.add(item)` - adds item to set
+* `s.remove(item)` - removes item from set
+* `s.discard(item)` - just like `remove` but it will not throw an error if item is not in the set
+* `s.update(seq)` - concats `seq` onto `s` in place.  this method always expects a sequence (list, tuple, or set).  It will try to turn any item you pass it into a sequence.  If you pass it a string, it will add each character in the string to the set.  If you pass it a dict, it will add the keys from the dict.  Probably just wanna stick to lists, tuples, or sets.  
+* `item in s` - checks whether set `s` contains `item`
+* Union: `s1.union(s2)` or `s1 | s2`
+	* returns a new set with `s1` and `s2` concated
+* Intersection
+
